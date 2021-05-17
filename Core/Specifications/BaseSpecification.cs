@@ -30,7 +30,6 @@ namespace Core.Specifications
         {
             Includes.Add(includeExpression);
         }
-
         protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
         {
             OrderBy = orderByExpression;
