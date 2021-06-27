@@ -11,7 +11,7 @@ namespace Infrastructure.Data
     {
         private readonly IDatabase _database;
         public BasketRepository(IConnectionMultiplexer redis)
-    {
+        {
             _database = redis.GetDatabase();
         }
 
