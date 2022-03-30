@@ -12,12 +12,12 @@ export interface IBasketItem {
 
 export interface IBasket {
     id: string;
-    items: IBasketItem[];
+    basketItems: IBasketItem[];
 }
 
 export class Basket implements IBasket{
     id = uuidv4();
-    items: IBasketItem[] = [];
+  basketItems: IBasketItem[] = [];
 
 }
 
