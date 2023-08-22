@@ -31,12 +31,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                         this.router.navigateByUrl('/not-found');
                         this.toastr.error(error.error.message, error.status.toString());
                     }
-                    ;
                     if (error.status === 500) {
                         const navigationExtras: NavigationExtras = {state: {error: error.error}}
                         this.router.navigateByUrl('/server-error', navigationExtras);
                     }
-                    ;
                 }
                 return throwError(() => new Error(error.message));
             })

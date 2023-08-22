@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
     @ViewChild('search') searchTerm?: ElementRef;
 
     products: Product[] = [];
-    bands: Brand[] = [];
+    brands: Brand[] = [];
     types: Type[] = [];
 
     shopParams = new ShopParams() ;
@@ -52,7 +52,7 @@ export class ShopComponent implements OnInit {
     getBrands() {
         this.shopService.getBrands()
             .subscribe({
-                next: response => this.bands = [{id: 0, name: 'All'}, ...response],
+                next: response => this.brands = [{id: 0, name: 'All'}, ...response],
                 error: error => console.log(error),
             })
     }

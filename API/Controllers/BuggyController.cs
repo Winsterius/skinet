@@ -13,7 +13,7 @@ public class BuggyController : BaseApiController
         _context = context;
     }
     
-    [HttpGet("notfound")]
+    [HttpGet("not-found")]
     public ActionResult GetNotFoundRequest()
     {
         var thing = _context.Products.Find(-1);
@@ -23,7 +23,7 @@ public class BuggyController : BaseApiController
         return Ok();
     }
     
-    [HttpGet("servererror")]
+    [HttpGet("server-error")]
     public ActionResult GetServerErrorRequest()
     {
         
@@ -34,13 +34,13 @@ public class BuggyController : BaseApiController
         return Ok();
     }
     
-    [HttpGet("badrequest")]
+    [HttpGet("bad-request")]
     public ActionResult GetBadRequestRequest()
     {
         return BadRequest(new ApiResponse(400));
     }
     
-    [HttpGet("badrequest/{id}")]
+    [HttpGet("bad-request/{id}")]
     public ActionResult GetRequest(int id)
     {
         return Ok();
