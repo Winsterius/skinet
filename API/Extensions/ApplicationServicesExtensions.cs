@@ -1,5 +1,6 @@
 using API.Errors;
 using Core.Interfaces;
+using Infrastructure;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ public static class ApplicationServicesExtensions
             return ConnectionMultiplexer.Connect(options);
         });
 
+        services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
