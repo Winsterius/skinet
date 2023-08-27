@@ -12,7 +12,7 @@ public class ProductUrlResolver : IValueResolver<Product, ProductToReturnDto, st
     {
         _config = config;
     }
-    
+
     public string Resolve(Product source, ProductToReturnDto destination, string destMember, ResolutionContext context)
     {
         if (string.IsNullOrWhiteSpace(source.PictureUrl))
@@ -20,8 +20,6 @@ public class ProductUrlResolver : IValueResolver<Product, ProductToReturnDto, st
             return null;
         }
         
-        
         return $"{_config["ApiUrl"]}{source.PictureUrl}";
-        
     }
 }
