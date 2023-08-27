@@ -1,13 +1,8 @@
-import {Injectable} from '@angular/core';
-import {
-    HttpRequest,
-    HttpHandler,
-    HttpEvent,
-    HttpInterceptor, HttpErrorResponse
-} from '@angular/common/http';
-import {catchError, Observable, throwError} from 'rxjs';
-import {NavigationExtras, Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
+import { Injectable } from '@angular/core';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
+import { NavigationExtras, Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -18,6 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         return next.handle(request).pipe(
             catchError((error: HttpErrorResponse) => {
+                console.log(error.status);
                 if (error) {
                     if (error.status === 400) {
                         if (error.error.errors) {
@@ -25,14 +21,16 @@ export class ErrorInterceptor implements HttpInterceptor {
                         } else {
                             this.toastr.error(error.error.message, error.status.toString());
                         }
-
+                    }
+                    if (error.status === 401){
+                        this.toastr.error(error.error.message, error.status.toString());
                     }
                     if (error.status === 404) {
                         this.router.navigateByUrl('/not-found');
                         this.toastr.error(error.error.message, error.status.toString());
                     }
                     if (error.status === 500) {
-                        const navigationExtras: NavigationExtras = {state: {error: error.error}}
+                        const navigationExtras: NavigationExtras = { state: { error: error.error } }
                         this.router.navigateByUrl('/server-error', navigationExtras);
                     }
                 }

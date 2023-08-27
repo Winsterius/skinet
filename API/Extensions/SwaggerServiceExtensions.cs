@@ -8,6 +8,7 @@ public static class SwaggerServiceExtensions
     public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services)
     {
         services.AddEndpointsApiExplorer();
+        //services.AddSwaggerGen();
         services.AddSwaggerGen(c =>
         {
             var securitySchema = new OpenApiSecurityScheme
@@ -24,7 +25,7 @@ public static class SwaggerServiceExtensions
                 }
             };
             c.AddSecurityDefinition("Bearer", securitySchema);
-
+        
             var securityRequirement = new OpenApiSecurityRequirement
             {
                 {

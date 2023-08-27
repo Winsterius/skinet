@@ -41,7 +41,7 @@ public class AccountController : BaseApiController
         return new UserDto
         {
             Email = user.Email,
-            Displayname = user.DisplayName,
+            DisplayName = user.DisplayName,
             Token = _tokenService.CreateToken(user)
         };
     }
@@ -93,7 +93,7 @@ public class AccountController : BaseApiController
         return new UserDto
         {
             Email = user.Email,
-            Displayname = user.DisplayName,
+            DisplayName = user.DisplayName,
             Token = _tokenService.CreateToken(user)
         };
     }
@@ -120,7 +120,7 @@ public class AccountController : BaseApiController
 
         return new UserDto
         {
-            Displayname = user.DisplayName,
+            DisplayName = user.DisplayName,
             Token = _tokenService.CreateToken(user),
             Email = user.Email
         };
