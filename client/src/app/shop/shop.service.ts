@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Pagination} from "../shared/models/Pagination";
-import {Product} from "../shared/models/Product";
+import {Pagination} from "../shared/models/pagination";
+import {Product} from "../shared/models/product";
 import {Brand} from "../shared/models/brand";
 import {Type} from "../shared/models/type";
 import {ShopParams} from "../shared/models/shopParams";
