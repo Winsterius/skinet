@@ -21,7 +21,7 @@ public class AppIdentityDbContextSeed
                     Street = "10 The Street",
                     City = "New York",
                     State = "NY",
-                    ZipCode = "90210"
+                    Zipcode = "90210"
                 }
             };
 

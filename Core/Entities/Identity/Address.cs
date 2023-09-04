@@ -17,7 +17,7 @@ public class Address
 
     public string State { get; set; }
 
-    public string ZipCode { get; set; }
+    public string Zipcode { get; set; }
 
     [Required]
     public string AppUserId { get; set; }
