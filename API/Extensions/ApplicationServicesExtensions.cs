@@ -28,6 +28,7 @@ public static class ApplicationServicesExtensions
             return ConnectionMultiplexer.Connect(options);
         });
 
+        services.AddScoped<IPaymentService, PaymentService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
