@@ -28,6 +28,8 @@ public static class ApplicationServicesExtensions
             return ConnectionMultiplexer.Connect(options);
         });
 
+        services.AddSingleton<IResponseCacheService, ResponseCacheService>();
+        
         services.AddScoped<IPaymentService, PaymentService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IBasketRepository, BasketRepository>();
